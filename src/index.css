@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+a {
+  color: #1d1d1b !important;
+}
 /* 
 @font-face {
   font-family: Montserrat;
@@ -226,14 +230,14 @@ code {
 }
 .ui-list__item:before {
   content: "";
-  width: 30px;
-  height: 20px;
+  width: 20px;
+  height: 25px;
   display: block;
   flex-shrink: 0;
   margin-right: 8px;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-image: url("data:image/svg+xml,%3Csvg width='31' height='20' viewBox='0 0 31 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31 0.033257C30.9532 0.159185 30.9271 0.243635 30.8913 0.323601C29.228 4.03543 27.5649 7.74725 25.9019 11.4591C25.3262 12.749 24.726 14.0232 23.8313 15.1371C21.7223 17.76 18.9994 19.3417 15.6472 19.8406C14.9714 19.9402 14.289 19.9906 13.6057 19.9915C9.22261 20.005 4.83913 19.9986 0.456016 19.9975C0.322759 19.9975 0.191768 19.9815 0 19.9695C0.103057 19.7285 0.181198 19.5372 0.264247 19.3488C2.01231 15.4551 3.76137 11.5613 5.51145 7.66741C7.04068 4.27595 9.56047 1.92778 13.1104 0.692417C14.3181 0.271287 15.5691 0.0373674 16.856 0.0328833C21.4327 0.0191819 26.0096 0.00822082 30.5866 0C30.7108 0 30.835 0.019431 31 0.033257Z' fill='%234267E5'/%3E%3C/svg%3E%0A");
+  background-image: url("./images/icons/tick.svg");
 }
 .ui-list__item + .ui-list__item {
   margin-top: 32px;
@@ -257,13 +261,14 @@ code {
   text-decoration: none;
 }
 .ui-checkbox__box {
-  background: var(--formFieldBg);
-  border-radius: var(--formBorderRadius);
-  width: 48px;
-  height: 48px;
+  background: transparent;
+  border-radius: 4px;
+  width: 18px;
+  height: 18px;
   display: block;
   margin-right: 10px;
   flex-shrink: 0;
+  border: 1px solid #404040;
 }
 @media (max-width: 600px) {
   .ui-checkbox__box {
@@ -275,7 +280,7 @@ code {
   display: none;
 }
 .ui-checkbox input:checked + .ui-checkbox__box {
-  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1188_14234)'%3E%3Cpath d='M5.65833 10.8167L2.18333 7.34167L1 8.51667L5.65833 13.175L15.6583 3.175L14.4833 2L5.65833 10.8167Z' fill='%231971CF'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1188_14234'%3E%3Crect width='16' height='16' fill='white' transform='matrix(-4.37114e-08 -1 -1 4.37114e-08 16 16)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1188_14234)'%3E%3Cpath d='M5.65833 10.8167L2.18333 7.34167L1 8.51667L5.65833 13.175L15.6583 3.175L14.4833 2L5.65833 10.8167Z' fill='%231D1D1B'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1188_14234'%3E%3Crect width='16' height='16' fill='white' transform='matrix(-4.37114e-08 -1 -1 4.37114e-08 16 16)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 50% 50%;
@@ -330,14 +335,14 @@ code {
   }
 }
 .ui-input__input {
-  background: var(--formFieldBg);
-  border-radius: var(--formBorderRadius);
+  background: transparent;
+  border-radius: 100px;
   height: 70px;
-  border: none;
   width: 100%;
   padding: 16px;
   outline: none;
   font-size: 24px;
+  border: 2px solid #404040;
 }
 @media (max-width: 600px) {
   .ui-input__input {
@@ -560,7 +565,7 @@ img {
   margin-bottom: 32px;
 }
 .registration {
-  padding: 80px 0;
+  padding: 0 0 80px 0;
 }
 @media (max-width: 600px) {
   .registration {
@@ -587,6 +592,7 @@ img {
 }
 .reg-form__row {
   display: flex;
+  flex-direction: column;
   column-gap: 120px;
   row-gap: 32px;
 }
@@ -602,7 +608,6 @@ img {
   }
 }
 .reg-form__field {
-  max-width: 360px;
   flex-grow: 1;
 }
 .reg-form__agree {
@@ -638,10 +643,10 @@ img {
   }
 }
 .footer {
-  background: var(--primaryColor);
-  color: #fff;
+  background: #fff;
+  color: #1d1d1b;
   padding: 32px 0;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.2;
 }
 .grecaptcha-badge {

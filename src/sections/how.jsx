@@ -10,19 +10,21 @@ export default function How() {
               Как получить 2 500₽ на покупки в OZON?
             </h2>
             <ul className="ui-list">
-              <li className="ui-list__item">
+              <li className="ui-list__item standard-text">
                 Оставьте свой номер телефона и адрес электронной почты для того,
                 чтобы получить сертификат на сумму 2500₽ на покупки в OZON
               </li>
-              <li className="ui-list__item">
+              <li className="ui-list__item standard-text">
                 С 1 марта по 31 марта 2024 года оформляйте кредитную карту «120
                 дней без процентов» от Хоум Банка, перейдя по ссылке после
                 оставления данных
               </li>
-              <li className="ui-list__item">
+              <li className="ui-list__item standard-text">
                 Оплатите картой покупки на сумму от 1000₽
               </li>
-              <li className="ui-list__item">Получите сертификат</li>
+              <li className="ui-list__item standard-text">
+                Получите сертификат
+              </li>
             </ul>
           </div>
         </div>
@@ -30,42 +32,28 @@ export default function How() {
       <div className="registration" id="form">
         <div className="container">
           <div className="registration__content">
-            <h2 className="ui-caption registration__title">Регистрация</h2>
-            <p>
-              Оставьте номер телефона, чтобы мы могли <br></br> отправить вам
-              сертификат <b>ЗОЛОТОЕ ЯБЛОКО</b>.
-            </p>
-            <p>
-              Оформите дебетовую карту «Мир» на сайте Газпромбанка, мы
-              перенаправим вас туда автоматически.{" "}
-            </p>
-            <p>
-              Совершите первую покупку, чтобы получить сертификат по указанному
-              номеру.
-            </p>
-
             <div className="registration__form">
               <form className="reg-form js-reg-form">
                 <div className="reg-form__row">
                   <div className="reg-form__field">
                     <div className="ui-input">
-                      <span className="ui-input__title">Промокод</span>
                       <input
-                        className="ui-input__input js-input-code"
-                        name="code"
+                        id="js-input-phone"
+                        className="ui-input__input js-input-phone"
+                        name="phone"
                         type="text"
+                        placeholder="Номер телефона"
                       />
                       <span className="ui-input__error"></span>
                     </div>
                   </div>
                   <div className="reg-form__field">
                     <div className="ui-input">
-                      <span className="ui-input__title">Номер телефона</span>
                       <input
-                        id="js-input-phone"
-                        className="ui-input__input js-input-phone"
-                        name="phone"
+                        className="ui-input__input js-input-code"
+                        name="code"
                         type="text"
+                        placeholder="Адрес электронной почты"
                       />
                       <span className="ui-input__error"></span>
                     </div>
@@ -87,7 +75,8 @@ export default function How() {
                       >
                         согласие
                       </a>{" "}
-                      на&nbsp;обработку персональных данных
+                      на обработку персональных данных и получение SMS-сообщений
+                      от Rafinad.
                     </span>
                   </label>
                   <span className="ui-checkbox__error"></span>
