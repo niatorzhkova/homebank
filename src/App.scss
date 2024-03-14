@@ -29,7 +29,7 @@
 .important__block {
   background: var(--redColor);
   color: #fff;
-  padding: 100px 104px;
+  padding: 90px 104px;
   border-radius: 50px;
 }
 
@@ -70,6 +70,7 @@
 
 .how__important {
   position: relative;
+  margin-top: 50px;
 }
 
 .rules__header {
@@ -83,4 +84,16 @@
 .ui-checkbox__text {
   font-weight: 300;
   font-size: 24px;
+}
+
+.important__header {
+  font-weight: 700;
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.important__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

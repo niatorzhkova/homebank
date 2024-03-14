@@ -86,23 +86,23 @@ export default function How() {
                   <div className="important__block">
                     <h2 className="important__header">Важно!</h2>
                     <ul className="important__list ui-list">
-                      <li className="important__item">
+                      <li className="important__item standard-text">
                         Для получения бонуса карта должна быть оформлена на тот
                         же номер, что указан в поле «Номер телефона»
                       </li>
-                      <li className="important__item">
+                      <li className="important__item standard-text">
                         После нажатия кнопки «Оформить карту», вы будете
                         перенаправлены на анкету, которую необходимо заполнить
                         для получения кредитной карты и бонуса
                       </li>
-                      <li className="important__item">
+                      <li className="important__item standard-text">
                         При не выполнении всех условий и корректности
                         заполненных данных бонус начислен не будет
                       </li>
                     </ul>
                     <button
                       type="submit"
-                      className="reg-form__button ui-button btn-red"
+                      className="reg-form__button ui-button btn-red standard-text"
                     >
                       Оформить карту
                     </button>

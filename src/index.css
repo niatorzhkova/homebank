@@ -384,7 +384,7 @@ img {
   margin-bottom: 30px;
 }
 .registration {
-  padding: 0 0 80px 0;
+  padding: 0 0 30px 0;
 }
 @media (max-width: 600px) {
   .registration {
@@ -444,7 +444,7 @@ img {
   }
 }
 .reg-form__button {
-  margin-top: 16px;
+  margin-top: 23px;
 }
 .reg-form__error {
   font-size: 13px;
@@ -466,6 +466,7 @@ img {
   padding: 32px 0;
   font-size: 16px;
   line-height: 1.2;
+  font-weight: 300;
 }
 .grecaptcha-badge {
   display: none !important;
