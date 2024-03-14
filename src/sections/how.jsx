@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
 
 export default function How() {
+  const [value, setValue] = useState();
   return (
     <React.Fragment>
       <div className="how-to-get">
@@ -37,23 +40,29 @@ export default function How() {
                 <div className="reg-form__row">
                   <div className="reg-form__field">
                     <div className="ui-input">
-                      <input
-                        id="js-input-phone"
+                      <label className="input__label ui-checkbox__text">
+                        Номер телефона
+                      </label>
+                      <PhoneInput
                         className="ui-input__input js-input-phone"
-                        name="phone"
-                        type="text"
-                        placeholder="Номер телефона"
+                        defaultCountry="RU"
+                        placeholder="+7 (999) 888-77-66"
+                        value={value}
+                        onChange={setValue}
                       />
                       <span className="ui-input__error"></span>
                     </div>
                   </div>
                   <div className="reg-form__field">
                     <div className="ui-input">
+                      <label className="input__label ui-checkbox__text">
+                        Адрес электронной почты
+                      </label>
                       <input
                         className="ui-input__input js-input-code"
                         name="code"
                         type="text"
-                        placeholder="Адрес электронной почты"
+                        placeholder="example@mail.ru"
                       />
                       <span className="ui-input__error"></span>
                     </div>

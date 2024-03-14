@@ -25,9 +25,9 @@ a {
 }
 @media (max-width: 600px) {
   .ui-button {
-    font-size: 16px;
-    padding: 12px 24px;
-    border-radius: 24px;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 4px 16px;
   }
 }
 .ui-caption {
@@ -43,7 +43,8 @@ a {
 }
 @media (max-width: 600px) {
   .ui-caption {
-    font-size: 28px;
+    font-size: 32px;
+    line-height: 1.2;
   }
 }
 .ui-list {
@@ -65,8 +66,19 @@ a {
   background-position: 50% 50%;
   background-image: url("./images/icons/tick.svg");
 }
+@media (max-width: 600px) {
+  .ui-list__item:before {
+    width: 16px;
+    height: 19px;
+  }
+}
 .ui-list__item + .ui-list__item {
-  margin-top: 17px;
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .ui-list__item + .ui-list__item {
+    margin-top: 17px;
+  }
 }
 .ui-checkbox {
   position: relative;
@@ -96,8 +108,10 @@ a {
 }
 @media (max-width: 600px) {
   .ui-checkbox__box {
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    margin-right: 7px;
   }
 }
 .ui-checkbox input {
@@ -167,12 +181,13 @@ a {
   outline: none;
   font-size: 24px;
   border: 2px solid #404040;
+  margin-top: 5px;
 }
 @media (max-width: 600px) {
   .ui-input__input {
-    height: 50px;
+    height: 40px;
     padding: 8px 16px;
-    font-size: 20px;
+    font-size: 14px;
   }
 }
 .u-collapse-all {
@@ -264,17 +279,19 @@ img {
   padding: 24px 0;
   border-bottom: 1px solid #ececec;
 }
-.header__logo {
-  max-width: 290px;
-}
-@media (max-width: 1024px) {
-  .header__logo {
-    max-width: 220px;
+
+@media (max-width: 600px) {
+  .header {
+    padding: 6px 0;
   }
 }
+.header__logo {
+  max-width: 188px;
+}
+
 @media (max-width: 600px) {
   .header__logo {
-    max-width: 180px;
+    max-width: 152px;
   }
 }
 .main-banner {
@@ -294,9 +311,8 @@ img {
 @media (max-width: 600px) {
   .main-banner {
     font-size: 18px;
-    background: #f7f7f9;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 12px;
+    padding-bottom: 35px;
   }
 }
 .main-banner__content {
@@ -310,11 +326,17 @@ img {
 @media (max-width: 600px) {
   .main-banner__content {
     max-width: 100%;
+    margin-bottom: 20px;
   }
 }
 
 .main-banner__title {
   margin-bottom: 25px;
+}
+@media (max-width: 600px) {
+  .main-banner__title {
+    margin-bottom: 10px;
+  }
 }
 .main-banner__button {
 }
@@ -325,7 +347,8 @@ img {
   column-gap: 50px;
   padding: 70px 0;
 }
-@media (max-width: 1280px) {
+
+@media (max-width: 1200px) {
   .main-benefits {
     grid-template-columns: 1fr 1fr;
   }
@@ -333,18 +356,26 @@ img {
 @media (max-width: 600px) {
   .main-benefits {
     grid-template-columns: 1fr;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 40px;
+    row-gap: 20px;
   }
 }
 .benefit-item {
-  max-width: 292px;
   text-align: center;
   background-color: #fff;
-  padding: 20px 20px 80px 20px;
+  padding: 20px;
   border-radius: 30px;
   text-align: left;
 }
+
+@media (min-width: 1200px) {
+  .benefit-item {
+    max-width: 292px;
+    padding: 20px 20px 80px 20px;
+  }
+}
+
 .benefit-item__img {
   max-width: 90px;
   width: 100%;
@@ -352,8 +383,8 @@ img {
 }
 @media (max-width: 600px) {
   .benefit-item__img {
-    max-width: 120px;
-    margin-bottom: 16px;
+    max-width: 50px;
+    margin-bottom: 10px;
   }
 }
 .benefit-item__title {
@@ -363,7 +394,8 @@ img {
 }
 @media (max-width: 1024px) {
   .benefit-item__title {
-    font-size: 20px;
+    font-size: 24px;
+    margin-bottom: 1px;
   }
 }
 .how-to-get {
@@ -374,7 +406,7 @@ img {
 }
 @media (max-width: 600px) {
   .how-to-get {
-    padding: 40px 0;
+    padding: 95px 0 0 0;
   }
 }
 .how-to-get__content {
@@ -383,12 +415,17 @@ img {
 .how-to-get__title {
   margin-bottom: 30px;
 }
+@media (max-width: 600px) {
+  .how-to-get__title {
+    margin-bottom: 10px;
+  }
+}
 .registration {
   padding: 0 0 30px 0;
 }
 @media (max-width: 600px) {
   .registration {
-    padding: 40px 0;
+    padding: 10px 0;
   }
 }
 .registration__title {
@@ -422,7 +459,7 @@ img {
 }
 @media (max-width: 600px) {
   .reg-form__row {
-    column-gap: 32px;
+    column-gap: 10px;
     flex-direction: column;
   }
 }
@@ -441,10 +478,16 @@ img {
 @media (max-width: 600px) {
   .reg-form__agree {
     font-size: 16px;
+    margin-top: 5px;
   }
 }
 .reg-form__button {
   margin-top: 23px;
+}
+@media (max-width: 600px) {
+  .reg-form__button {
+    margin-top: 5px;
+  }
 }
 .reg-form__error {
   font-size: 13px;
@@ -467,6 +510,13 @@ img {
   font-size: 16px;
   line-height: 1.2;
   font-weight: 300;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    font-size: 12px;
+    padding: 20px 0;
+  }
 }
 .grecaptcha-badge {
   display: none !important;

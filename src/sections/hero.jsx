@@ -5,7 +5,7 @@ export default function Hero() {
     <React.Fragment>
       {" "}
       <div className="main-banner">
-        <div className="container flex">
+        <div className="container main-banner-container">
           <div className="main-banner__content">
             <h1 className="ui-caption main-banner__title">
               Кредитная карта 120 дней без %
@@ -13,10 +13,7 @@ export default function Hero() {
             <p className="hero__text standard-text">
               Оформляйте и получайте сертификат
             </p>
-            <a
-              className="main-banner__button ui-button standard-text"
-              href="#form"
-            >
+            <a className="main-banner__button ui-button" href="#form">
               в OZON на 2500₽
             </a>
           </div>

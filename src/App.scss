@@ -3,20 +3,42 @@
   font-size: 24px;
 }
 
-.main-banner__img {
-  width: 54%;
-  position: relative;
-  top: -64px;
-  right: 7px;
-  height: fit-content;
+@media (max-width: 1024px) {
+  .standard-text {
+  }
 }
-
-.flex {
-  display: flex;
+@media (max-width: 600px) {
+  .standard-text {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1200px) {
+  .main-banner__img {
+    width: 54%;
+    position: relative;
+    top: -64px;
+    right: 7px;
+    height: fit-content;
+  }
+}
+@media (min-width: 600px) {
+  .main-banner__img {
+    width: 50%;
+    position: relative;
+    top: -20px;
+    right: -20px;
+    height: fit-content;
+  }
 }
 
 .benefits__section {
   background-color: var(--redColor);
+}
+
+@media (max-width: 600px) {
+  .benefits__section {
+    padding-bottom: 65px;
+  }
 }
 
 .benefits__pic {
@@ -25,12 +47,34 @@
   left: -109px;
   bottom: -267px;
 }
+@media (max-width: 1200px) {
+  .benefits__pic {
+    bottom: -210px;
+    width: 480px;
+    left: -20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits__pic {
+    bottom: -175px;
+    width: 376px;
+    left: 26px;
+  }
+}
 
 .important__block {
   background: var(--redColor);
   color: #fff;
   padding: 90px 104px;
   border-radius: 50px;
+}
+
+@media (max-width: 1200px) {
+  .important__block {
+    padding: 20px 18px;
+    border-radius: 20px;
+  }
 }
 
 .btn-red {
@@ -61,6 +105,13 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .important__item:before {
+    width: 16px;
+    height: 19px;
+  }
+}
+
 .important__pic {
   max-width: 340px;
   position: absolute;
@@ -68,9 +119,23 @@
   bottom: -55px;
 }
 
+@media (max-width: 1200px) {
+  .important__pic {
+    max-width: 155px;
+    right: -44px;
+    bottom: -33px;
+  }
+}
+
 .how__important {
   position: relative;
   margin-top: 50px;
+}
+
+@media (max-width: 1200px) {
+  .how__important {
+    margin-top: 6px;
+  }
 }
 
 .rules__header {
@@ -81,9 +146,20 @@
   margin-bottom: 15px;
 }
 
+@media (max-width: 600px) {
+  .hero__text {
+    margin-bottom: 5px;
+  }
+}
+
 .ui-checkbox__text {
   font-weight: 300;
   font-size: 24px;
+}
+@media (max-width: 600px) {
+  .ui-checkbox__text {
+    font-size: 16px;
+  }
 }
 
 .important__header {
@@ -91,9 +167,53 @@
   font-size: 64px;
   margin-bottom: 16px;
 }
+@media (max-width: 1200px) {
+  .important__header {
+    font-size: 32px;
+    margin-bottom: 3px;
+  }
+}
 
 .important__list {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+@media (max-width: 1200px) {
+  .important__list {
+    gap: 5px;
+  }
+}
+
+.PhoneInputInput {
+  height: 100%;
+  outline: none;
+  border: none;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+@media (max-width: 600px) {
+  .PhoneInputInput {
+    font-size: 14px;
+  }
+}
+
+.PhoneInputCountry {
+  display: none !important;
+}
+
+.main-banner-container {
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  .main-banner-container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .main-banner__img {
+  }
 }
