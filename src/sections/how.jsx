@@ -1,9 +1,40 @@
 import React, { useState } from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+import { isPossiblePhoneNumber } from "react-phone-number-input";
+import { AES, enc } from "crypto-js";
 
 export default function How() {
-  const [value, setValue] = useState();
+  const [phoneValue, setPhoneValue] = useState("");
+  const [emailValue, setEmailValue] = useState("");
+  const [phoneNotValid, setPhoneNotValid] = useState(false);
+
+  function isValidEmail(email) {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  }
+
+  function handlePhoneChange(phone) {
+    setPhoneValue(phone);
+    const encryptedText = AES.encrypt(phoneValue, "rafinad");
+    const url = new URL(window.location.href);
+    url.searchParams.set("id", encryptedText);
+    window.history.pushState({ path: url.href }, "", url.href);
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    const email = emailValue;
+    const phone = phoneValue;
+
+    if (isValidEmail(email) && phone !== "" && isPossiblePhoneNumber(phone)) {
+      // Email is valid, proceed with form submission.
+    } else {
+      // Display an error message for invalid email.
+    }
+  }
+  console.log(phoneValue, "phone value");
+  console.log(emailValue, "email value");
+
   return (
     <React.Fragment>
       <div className="how-to-get">
@@ -47,10 +78,14 @@ export default function How() {
                         className="ui-input__input js-input-phone"
                         defaultCountry="RU"
                         placeholder="+7 (999) 888-77-66"
-                        value={value}
-                        onChange={setValue}
+                        value={phoneValue}
+                        onChange={handlePhoneChange}
                       />
-                      <span className="ui-input__error"></span>
+                      {phoneValue !== "" && phoneNotValid && (
+                        <span className="ui-input__error">
+                          Введите корректный номер телефона
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="reg-form__field">
@@ -60,11 +95,16 @@ export default function How() {
                       </label>
                       <input
                         className="ui-input__input js-input-code"
-                        name="code"
-                        type="text"
+                        value={emailValue}
+                        onChange={(e) => setEmailValue(e.target.value)}
                         placeholder="example@mail.ru"
+                        type="email"
                       />
-                      <span className="ui-input__error"></span>
+                      {emailValue !== "" && !isValidEmail(emailValue) && (
+                        <span className="ui-input__error">
+                          Введите корректный email
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -76,7 +116,7 @@ export default function How() {
                       value="agree"
                     />
                     <span className="ui-checkbox__box"></span>
-                    <span className="ui-checkbox__text">
+                    <span className="ui-checkbox__text agree">
                       Я&nbsp;даю{" "}
                       <a
                         href="https://rafinad.io/download-file/privacy_policy"

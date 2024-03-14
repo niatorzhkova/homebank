@@ -47,6 +47,15 @@
   left: -109px;
   bottom: -267px;
 }
+
+@media (max-width: 1400px) {
+  .benefits__pic {
+    bottom: -210px;
+    width: 600px;
+    left: -46px;
+  }
+}
+
 @media (max-width: 1200px) {
   .benefits__pic {
     bottom: -210px;
@@ -80,6 +89,13 @@
 .btn-red {
   background: #fff;
   color: var(--redColor);
+  transition: 0.3s;
+}
+
+.btn-red:hover {
+  background: var(--redColor);
+  color: #fff;
+  transition: 0.3s;
 }
 
 .important__item {
@@ -216,4 +232,8 @@
 @media (max-width: 600px) {
   .main-banner__img {
   }
+}
+
+.agree {
+  margin-top: 5px;
 }
