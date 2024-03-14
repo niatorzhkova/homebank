@@ -10,7 +10,9 @@ export default function Hero() {
             <h1 className="ui-caption main-banner__title">
               Кредитная карта 120 дней без %
             </h1>
-            <p className="standard-text">Оформляйте и получайте сертификат</p>
+            <p className="hero__text standard-text">
+              Оформляйте и получайте сертификат
+            </p>
             <a
               className="main-banner__button ui-button standard-text"
               href="#form"

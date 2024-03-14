@@ -82,9 +82,39 @@ export default function How() {
                   <span className="ui-checkbox__error"></span>
                 </div>
                 <span className="reg-form__error"></span>
-                <button type="submit" className="reg-form__button ui-button">
-                  Отправить
-                </button>
+                <div className="how__important">
+                  <div className="important__block">
+                    <h2 className="important__header">Важно!</h2>
+                    <ul className="important__list ui-list">
+                      <li className="important__item">
+                        Для получения бонуса карта должна быть оформлена на тот
+                        же номер, что указан в поле «Номер телефона»
+                      </li>
+                      <li className="important__item">
+                        После нажатия кнопки «Оформить карту», вы будете
+                        перенаправлены на анкету, которую необходимо заполнить
+                        для получения кредитной карты и бонуса
+                      </li>
+                      <li className="important__item">
+                        При не выполнении всех условий и корректности
+                        заполненных данных бонус начислен не будет
+                      </li>
+                    </ul>
+                    <button
+                      type="submit"
+                      className="reg-form__button ui-button btn-red"
+                    >
+                      Оформить карту
+                    </button>
+                  </div>
+                  <div className="important__pic">
+                    <img
+                      className="important__img"
+                      src={require("../images/how-pic.webp")}
+                      alt=""
+                    />
+                  </div>
+                </div>
               </form>
             </div>
           </div>

@@ -10,7 +10,7 @@ export default function Benefits({}) {
             <div className="benefit-item">
               <img
                 className="benefit-item__img"
-                src={require("../images/icons/1.svg").default}
+                src={require("../images/icons/benefits/1.svg").default}
                 alt=""
               />
               <p className="benefit-item__title">1000 баллов Польза</p>
@@ -21,7 +21,7 @@ export default function Benefits({}) {
             <div className="benefit-item">
               <img
                 className="benefit-item__img"
-                src={require("../images/icons/2.svg").default}
+                src={require("../images/icons/benefits/2.svg").default}
                 alt=""
               />
               <p className="benefit-item__title">0 ₽</p>
@@ -30,7 +30,7 @@ export default function Benefits({}) {
             <div className="benefit-item">
               <img
                 className="benefit-item__img"
-                src={require("../images/icons/3.svg").default}
+                src={require("../images/icons/benefits/3.svg").default}
                 alt=""
               />
               <p className="benefit-item__title">18 месяцев</p>
@@ -41,7 +41,7 @@ export default function Benefits({}) {
             <div className="benefit-item">
               <img
                 className="benefit-item__img"
-                src={require("../images/icons/4.svg").default}
+                src={require("../images/icons/benefits/4.svg").default}
                 alt=""
               />
               <p className="benefit-item__title">0 ₽</p>

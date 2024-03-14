@@ -4,7 +4,11 @@
 }
 
 .main-banner__img {
-  width: 48%;
+  width: 54%;
+  position: relative;
+  top: -64px;
+  right: 7px;
+  height: fit-content;
 }
 
 .flex {
@@ -17,7 +21,66 @@
 
 .benefits__pic {
   position: absolute;
-  width: 530px;
-  left: -29px;
-  bottom: -177px;
+  width: 640px;
+  left: -109px;
+  bottom: -267px;
+}
+
+.important__block {
+  background: var(--redColor);
+  color: #fff;
+  padding: 100px 104px;
+  border-radius: 50px;
+}
+
+.btn-red {
+  background: #fff;
+  color: var(--redColor);
+}
+
+.important__item {
+  display: flex;
+}
+
+.important__item:before {
+  content: "";
+  width: 20px;
+  height: 25px;
+  display: block;
+  flex-shrink: 0;
+  margin-right: 8px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url("./images/icons/important/1.svg");
+
+  &:nth-child(2) {
+    background-image: url("./images/icons/important/2.svg");
+  }
+  &:nth-child(3) {
+    background-image: url("./images/icons/important/3.svg");
+  }
+}
+
+.important__pic {
+  max-width: 340px;
+  position: absolute;
+  right: -135px;
+  bottom: -55px;
+}
+
+.how__important {
+  position: relative;
+}
+
+.rules__header {
+  margin-bottom: 0;
+}
+
+.hero__text {
+  margin-bottom: 15px;
+}
+
+.ui-checkbox__text {
+  font-weight: 300;
+  font-size: 24px;
 }

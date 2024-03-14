@@ -1,186 +1,13 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+@import url(./fonts/fonts.css);
 
 a {
-  color: #1d1d1b !important;
+  color: #1d1d1b;
 }
-/* 
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-Black.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-Black.woff) format("woff");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-Bold.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-Bold.woff) format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-BlackItalic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-BlackItalic.woff) format("woff");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-ExtraBoldItalic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-ExtraBoldItalic.woff) format("woff");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-ExtraLight.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-ExtraLight.woff) format("woff");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-BoldItalic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-BoldItalic.woff) format("woff");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-ExtraLightItalic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-ExtraLightItalic.woff) format("woff");
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-ExtraBold.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-ExtraBold.woff) format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-Light.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-Light.woff) format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-MediumItalic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-MediumItalic.woff) format("woff");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-Medium.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-Medium.woff) format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-Regular.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-Regular.woff) format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-LightItalic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-LightItalic.woff) format("woff");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-Italic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-Italic.woff) format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-SemiBold.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-SemiBold.woff) format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-ThinItalic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-ThinItalic.woff) format("woff");
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-SemiBoldItalic.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-SemiBoldItalic.woff) format("woff");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: Montserrat;
-  src: url(/fonts/montserrat/Montserrat-Thin.woff2) format("woff2"),
-    url(/fonts/montserrat/Montserrat-Thin.woff) format("woff");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: FuturaBookC;
-  src: url(/fonts/futura/FuturaBookC.woff2) format("woff2"),
-    url(/fonts/futura/FuturaBookC.woff) format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: FuturaBookC;
-  src: url(/fonts/futura/FuturaBookC_Bold.woff2) format("woff2"),
-    url(/fonts/futura/FuturaBookC_Bold.woff) format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-} */
+
 .ui-button {
   padding: 8px 30px;
   font-size: 30px;
   font-weight: 700;
-  font-family: var(--secondaryFont);
   text-decoration: none;
   background: var(--redColor);
   color: #fff;
@@ -206,9 +33,8 @@ a {
 .ui-caption {
   color: var(--primaryColor);
   font-size: 64px;
-  font-family: var(--secondaryFont);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.1;
 }
 @media (max-width: 1024px) {
   .ui-caption {
@@ -240,7 +66,7 @@ a {
   background-image: url("./images/icons/tick.svg");
 }
 .ui-list__item + .ui-list__item {
-  margin-top: 32px;
+  margin-top: 17px;
 }
 .ui-checkbox {
   position: relative;
@@ -257,8 +83,6 @@ a {
   }
 }
 .ui-checkbox__label a {
-  color: #6046c7;
-  text-decoration: none;
 }
 .ui-checkbox__box {
   background: transparent;
@@ -337,7 +161,7 @@ a {
 .ui-input__input {
   background: transparent;
   border-radius: 100px;
-  height: 70px;
+  height: 60px;
   width: 100%;
   padding: 16px;
   outline: none;
@@ -353,13 +177,13 @@ a {
 }
 .u-collapse-all {
   margin: 0;
+  font-weight: 300;
+  font-size: 18px;
 }
 :root {
   --primaryColor: #1d1d1b;
   --redColor: #e1192f;
   --siteWidth: 1440px;
-  --primaryFont: "Montserrat", sans-serif;
-  --secondaryFont: "FuturaBookC", sans-serif;
   --formFieldBg: #d5e5fd;
   --formBorderRadius: 16px;
 }
@@ -394,12 +218,15 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: var(--primaryFont);
   font-size: 20px;
   color: #000;
   line-height: 1.2;
   font-weight: 400;
   overflow-x: hidden;
+  font-family: "Stem";
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 @media (max-width: 1024px) {
   body {
@@ -420,6 +247,7 @@ img {
   width: 100%;
   margin: 0 auto;
   padding: 0 64px;
+  position: relative;
 }
 @media (max-width: 1024px) {
   .container {
@@ -452,8 +280,8 @@ img {
 .main-banner {
   font-size: 27px;
   display: flex;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 60px;
+  padding-bottom: 30px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -474,8 +302,8 @@ img {
 .main-banner__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 52%;
+  justify-content: flex-start;
+  max-width: 40%;
   height: 100%;
   text-align: left;
 }
@@ -484,25 +312,18 @@ img {
     max-width: 100%;
   }
 }
-.main-banner:before {
-  content: "";
-  display: block;
-  padding-top: min(45%, 670px);
-  max-height: 670px;
-  width: 0;
-}
+
 .main-banner__title {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 .main-banner__button {
-  margin-top: 32px;
 }
 .main-benefits {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 48px;
-  column-gap: 64px;
-  padding: 100px 0;
+  column-gap: 50px;
+  padding: 70px 0;
 }
 @media (max-width: 1280px) {
   .main-benefits {
@@ -517,7 +338,7 @@ img {
   }
 }
 .benefit-item {
-  max-width: 390px;
+  max-width: 292px;
   text-align: center;
   background-color: #fff;
   padding: 20px 20px 80px 20px;
@@ -527,7 +348,7 @@ img {
 .benefit-item__img {
   max-width: 90px;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 @media (max-width: 600px) {
   .benefit-item__img {
@@ -536,10 +357,9 @@ img {
   }
 }
 .benefit-item__title {
-  font-weight: 700;
-  font-size: 24px;
-  font-family: var(--secondaryFont);
-  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 22px;
+  margin-bottom: 6px;
 }
 @media (max-width: 1024px) {
   .benefit-item__title {
@@ -547,8 +367,7 @@ img {
   }
 }
 .how-to-get {
-  padding: 200px 0 80px 0;
-  /* background-image: url(/images/bg-image.jpg); */
+  padding: 295px 0 30px 0;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0% 50%;
@@ -559,10 +378,10 @@ img {
   }
 }
 .how-to-get__content {
-  max-width: 1150px;
+  max-width: 1155px;
 }
 .how-to-get__title {
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 .registration {
   padding: 0 0 80px 0;
@@ -576,7 +395,7 @@ img {
   margin-bottom: 16px;
 }
 .registration__content {
-  max-width: 1100px;
+  max-width: 1230px;
   font-size: 27px;
   line-height: 1.4;
 }
@@ -594,7 +413,7 @@ img {
   display: flex;
   flex-direction: column;
   column-gap: 120px;
-  row-gap: 32px;
+  row-gap: 15px;
 }
 @media (max-width: 1024px) {
   .reg-form__row {
@@ -612,8 +431,7 @@ img {
 }
 .reg-form__agree {
   font-size: 20px;
-  margin-top: 48px;
-  max-width: 640px;
+  margin-top: 15px;
 }
 @media (max-width: 1024px) {
   .reg-form__agree {
