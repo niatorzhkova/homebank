@@ -7,7 +7,10 @@ import { AES, enc } from "crypto-js";
 export default function How() {
   const [phoneValue, setPhoneValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
-  const [phoneNotValid, setPhoneNotValid] = useState(false);
+  const [phoneIsEmpty, setPhoneIsEmpty] = useState(false);
+  const [emailIsEmpty, setEmailIsEmpty] = useState(false);
+  const [checked, setChecked] = useState(null);
+  const [error, setError] = useState(false);
 
   function isValidEmail(email) {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -16,24 +19,51 @@ export default function How() {
 
   function handlePhoneChange(phone) {
     setPhoneValue(phone);
+    setPhoneIsEmpty(false);
     const encryptedText = AES.encrypt(phoneValue, "rafinad");
     const url = new URL(window.location.href);
     url.searchParams.set("id", encryptedText);
     window.history.pushState({ path: url.href }, "", url.href);
   }
+
+  function handleEmailChange(e) {
+    setEmailValue(e.currentTarget.value);
+    setEmailIsEmpty(false);
+  }
   function handleSubmit(event) {
     event.preventDefault();
     const email = emailValue;
     const phone = phoneValue;
-
-    if (isValidEmail(email) && phone !== "" && isPossiblePhoneNumber(phone)) {
-      // Email is valid, proceed with form submission.
+    if (phoneValue === "" || phoneValue === undefined) {
+      setPhoneIsEmpty(true);
+      return;
     } else {
-      // Display an error message for invalid email.
+      setPhoneIsEmpty(false);
+    }
+    if (emailValue === "") {
+      setEmailIsEmpty(true);
+    } else {
+      setEmailIsEmpty(false);
+    }
+
+    if (!checked) {
+      setChecked(false);
+    }
+
+    if (
+      isValidEmail(email) &&
+      !emailIsEmpty &&
+      !phoneIsEmpty &&
+      isPossiblePhoneNumber(phone) &&
+      checked
+    ) {
+      try {
+        setError(false);
+      } catch (error) {
+        setError(true);
+      }
     }
   }
-  console.log(phoneValue, "phone value");
-  console.log(emailValue, "email value");
 
   return (
     <React.Fragment>
@@ -81,9 +111,9 @@ export default function How() {
                         value={phoneValue}
                         onChange={handlePhoneChange}
                       />
-                      {phoneValue !== "" && phoneNotValid && (
+                      {phoneIsEmpty && (
                         <span className="ui-input__error">
-                          Введите корректный номер телефона
+                          Поле обязательно для заполнения
                         </span>
                       )}
                     </div>
@@ -96,13 +126,18 @@ export default function How() {
                       <input
                         className="ui-input__input js-input-code"
                         value={emailValue}
-                        onChange={(e) => setEmailValue(e.target.value)}
+                        onChange={handleEmailChange}
                         placeholder="example@mail.ru"
                         type="email"
                       />
                       {emailValue !== "" && !isValidEmail(emailValue) && (
                         <span className="ui-input__error">
                           Введите корректный email
+                        </span>
+                      )}
+                      {emailIsEmpty && (
+                        <span className="ui-input__error">
+                          Поле обязательно для заполнения
                         </span>
                       )}
                     </div>
@@ -112,8 +147,11 @@ export default function How() {
                   <label className="ui-checkbox__label">
                     <input
                       type="checkbox"
+                      checked={checked}
+                      onChange={(e) => {
+                        setChecked(e.target.checked);
+                      }}
                       className="js-checkbox"
-                      value="agree"
                     />
                     <span className="ui-checkbox__box"></span>
                     <span className="ui-checkbox__text agree">
@@ -121,6 +159,7 @@ export default function How() {
                       <a
                         href="https://rafinad.io/download-file/privacy_policy"
                         target="_blank"
+                        rel="noreferrer noopenner"
                       >
                         согласие
                       </a>{" "}
@@ -128,7 +167,16 @@ export default function How() {
                       от Rafinad.
                     </span>
                   </label>
-                  <span className="ui-checkbox__error"></span>
+                  {checked === false && (
+                    <span className="ui-checkbox__error">
+                      Поле обязательно для заполнения
+                    </span>
+                  )}
+                  {error && (
+                    <span className="ui-checkbox__error">
+                      Произошла ошибка при отправке формы, попробуйте позднее
+                    </span>
+                  )}
                 </div>
                 <span className="reg-form__error"></span>
                 <div className="how__important">
@@ -150,8 +198,14 @@ export default function How() {
                       </li>
                     </ul>
                     <button
+                      onClick={(e) => {
+                        handleSubmit(e);
+                      }}
                       type="submit"
-                      className="reg-form__button ui-button btn-red standard-text"
+                      className={`reg-form__button ui-button btn-red standard-text  ${phoneIsEmpty}
+                          ? "btn-disabled"
+                          : null
+                          `}
                     >
                       Оформить карту
                     </button>

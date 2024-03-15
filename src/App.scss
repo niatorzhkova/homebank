@@ -3,8 +3,9 @@
   font-size: 24px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1400px) {
   .standard-text {
+    font-size: 22px;
   }
 }
 @media (max-width: 600px) {
@@ -48,15 +49,15 @@
   bottom: -267px;
 }
 
-@media (max-width: 1400px) {
-  .benefits__pic {
-    bottom: -210px;
-    width: 600px;
-    left: -46px;
-  }
-}
+// @media (max-width: 1500px) {
+//   .benefits__pic {
+//     bottom: -210px;
+//     width: 600px;
+//     left: -46px;
+//   }
+// }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .benefits__pic {
     bottom: -210px;
     width: 480px;
@@ -77,6 +78,11 @@
   color: #fff;
   padding: 90px 104px;
   border-radius: 50px;
+}
+@media (max-width: 1400px) {
+  .important__block {
+    padding: 85px 58px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -172,6 +178,11 @@
   font-weight: 300;
   font-size: 24px;
 }
+@media (max-width: 1400px) {
+  .ui-checkbox__text {
+    font-size: 18px;
+  }
+}
 @media (max-width: 600px) {
   .ui-checkbox__text {
     font-size: 16px;
@@ -210,6 +221,11 @@
   font-weight: 300;
 }
 
+@media (max-width: 1400px) {
+  .PhoneInputInput {
+    font-size: 20px;
+  }
+}
 @media (max-width: 600px) {
   .PhoneInputInput {
     font-size: 14px;
@@ -236,4 +252,8 @@
 
 .agree {
   margin-top: 5px;
+}
+
+.btn-disabled {
+  pointer-events: none;
 }
