@@ -3,6 +3,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { isPossiblePhoneNumber } from "react-phone-number-input";
 import { AES, enc } from "crypto-js";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function How() {
   const [phoneValue, setPhoneValue] = useState("");
@@ -11,6 +12,8 @@ export default function How() {
   const [emailIsEmpty, setEmailIsEmpty] = useState(false);
   const [checked, setChecked] = useState(null);
   const [error, setError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const recaptchaRef = React.createRef();
 
   function isValidEmail(email) {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,8 +33,10 @@ export default function How() {
     setEmailValue(e.currentTarget.value);
     setEmailIsEmpty(false);
   }
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    setIsSubmitting(true);
+    const token = await recaptchaRef.current.executeAsync();
     const email = emailValue;
     const phone = phoneValue;
     if (phoneValue === "" || phoneValue === undefined) {
@@ -61,6 +66,8 @@ export default function How() {
         setError(false);
       } catch (error) {
         setError(true);
+      } finally {
+        setIsSubmitting(false);
       }
     }
   }
@@ -98,6 +105,11 @@ export default function How() {
           <div className="registration__content">
             <div className="registration__form">
               <form className="reg-form js-reg-form">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  size="invisible"
+                  sitekey="6LfA288nAAAAAKt8TcmpQGAdfCnCAj3C1y5_6GLg"
+                />
                 <div className="reg-form__row">
                   <div className="reg-form__field">
                     <div className="ui-input">
@@ -202,9 +214,9 @@ export default function How() {
                         handleSubmit(e);
                       }}
                       type="submit"
-                      className={`reg-form__button ui-button btn-red standard-text  ${phoneIsEmpty}
-                          ? "btn-disabled"
-                          : null
+                      className={`reg-form__button ui-button btn-red standard-text ${
+                        isSubmitting ? "submitting" : ""
+                      }  ${phoneIsEmpty ? "btn-disabled" : ""}
                           `}
                     >
                       Оформить карту

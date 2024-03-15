@@ -257,3 +257,16 @@
 .btn-disabled {
   pointer-events: none;
 }
+
+.submitting {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%, -50%);
+    background: url("./images/spinner.svg") center center no-repeat;
+  }
+}

@@ -499,6 +499,7 @@ img {
 }
 .reg-form__button {
   margin-top: 23px;
+  position: relative;
 }
 @media (max-width: 600px) {
   .reg-form__button {
