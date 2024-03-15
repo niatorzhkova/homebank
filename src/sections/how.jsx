@@ -25,7 +25,8 @@ export default function How() {
     setPhoneIsEmpty(false);
     const encryptedText = AES.encrypt(phoneValue, "rafinad");
     const url = new URL(window.location.href);
-    url.searchParams.set("id", encryptedText);
+    url.searchParams.set("aff_sub6", encryptedText);
+    url.searchParams.set("aff_sub7", "cert");
     window.history.pushState({ path: url.href }, "", url.href);
   }
 
@@ -35,8 +36,7 @@ export default function How() {
   }
   async function handleSubmit(event) {
     event.preventDefault();
-    setIsSubmitting(true);
-    const token = await recaptchaRef.current.executeAsync();
+    // const token = await recaptchaRef.current.executeAsync();
     const email = emailValue;
     const phone = phoneValue;
     if (phoneValue === "" || phoneValue === undefined) {
@@ -63,7 +63,19 @@ export default function How() {
       checked
     ) {
       try {
+        setIsSubmitting(true);
+        let getParamsStr = window.location.search;
+        const data = { landing_id: "2", email: emailValue, phone: phoneValue };
         setError(false);
+        await fetch("https://rafinad.io/api/v1/create_landing_data/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(data),
+        });
+
+        window.location = `https://go.leadgid.ru/${getParamsStr}`;
       } catch (error) {
         setError(true);
       } finally {
