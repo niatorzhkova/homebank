@@ -1,19 +1,20 @@
-import React, { useState } from "react";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import { isPossiblePhoneNumber } from "react-phone-number-input";
+import React, { useState, useRef } from "react";
 import { AES, enc } from "crypto-js";
 import ReCAPTCHA from "react-google-recaptcha";
+import { IMaskInput } from "react-imask";
 
 export default function How() {
   const [phoneValue, setPhoneValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [phoneIsEmpty, setPhoneIsEmpty] = useState(false);
+  const [phoneIsValid, setPhoneIsValid] = useState(true);
   const [emailIsEmpty, setEmailIsEmpty] = useState(false);
   const [checked, setChecked] = useState(null);
   const [error, setError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const recaptchaRef = React.createRef();
+  const ref = useRef(null);
+  const inputRef = useRef(null);
 
   function isValidEmail(email) {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,8 +22,15 @@ export default function How() {
   }
 
   function handlePhoneChange(phone) {
+    const PHONE_LENGTH = 11;
     setPhoneValue(phone);
     setPhoneIsEmpty(false);
+
+    if (phone.length < PHONE_LENGTH) {
+      setPhoneIsValid(false);
+    } else {
+      setPhoneIsValid(true);
+    }
     const encryptedText = AES.encrypt(phoneValue, "rafinad");
     const url = new URL(window.location.href);
     url.searchParams.set("aff_sub6", encryptedText);
@@ -34,11 +42,50 @@ export default function How() {
     setEmailValue(e.currentTarget.value);
     setEmailIsEmpty(false);
   }
+
+  function sanitizeValue(text) {
+    return (
+      text
+        // htmlspecialchars
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
+        // addslashes
+        .replace(/\\/g, "\\\\")
+        // eslint-disable-next-line
+        .replace(/\u0008/g, "\\b")
+        .replace(/\t/g, "\\t")
+        .replace(/\n/g, "\\n")
+        .replace(/\f/g, "\\f")
+        .replace(/\r/g, "\\r")
+        .replace(/'/g, "\\'")
+        .replace(/"/g, '\\"')
+    );
+  }
+
+  function getGetParams(url = window.location) {
+    let params = {};
+
+    new URL(url).searchParams.forEach((val, key) => {
+      if (key.includes("[]")) {
+        if (!params[key.replace("[]", "")]) params[key.replace("[]", "")] = [];
+        if (!params[key.replace("[]", "")].includes(val))
+          params[key.replace("[]", "")].push(sanitizeValue(val));
+      } else {
+        params[key] = sanitizeValue(val);
+      }
+    });
+
+    return params;
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     // const token = await recaptchaRef.current.executeAsync();
     const email = emailValue;
-    const phone = phoneValue;
+
     if (phoneValue === "" || phoneValue === undefined) {
       setPhoneIsEmpty(true);
       return;
@@ -50,22 +97,29 @@ export default function How() {
     } else {
       setEmailIsEmpty(false);
     }
-
     if (!checked) {
       setChecked(false);
     }
 
     if (
-      isValidEmail(email) &&
-      !emailIsEmpty &&
       !phoneIsEmpty &&
-      isPossiblePhoneNumber(phone) &&
-      checked
+      !emailIsEmpty &&
+      checked &&
+      isValidEmail(email) &&
+      phoneIsValid
     ) {
       try {
         setIsSubmitting(true);
         let getParamsStr = window.location.search;
-        const data = { landing_id: "2", email: emailValue, phone: phoneValue };
+        const { aff_sub: click_id, aff_sub2: wm_id } = getGetParams();
+        const data = {
+          landing_id: "2",
+          email: emailValue,
+          phone_number: phoneValue,
+          wm_id: wm_id,
+          click_id: click_id,
+          get_params: getParamsStr,
+        };
         setError(false);
         await fetch("https://rafinad.io/api/v1/create_landing_data/", {
           method: "POST",
@@ -128,16 +182,25 @@ export default function How() {
                       <label className="input__label ui-checkbox__text">
                         Номер телефона
                       </label>
-                      <PhoneInput
+                      <IMaskInput
+                        mask={"+{7} (000) 000 00-00"}
+                        radix="."
+                        unmask={true}
+                        ref={ref}
+                        inputRef={inputRef}
                         className="ui-input__input js-input-phone"
-                        defaultCountry="RU"
                         placeholder="+7 (999) 888-77-66"
                         value={phoneValue}
-                        onChange={handlePhoneChange}
+                        onAccept={handlePhoneChange}
                       />
                       {phoneIsEmpty && (
                         <span className="ui-input__error">
                           Поле обязательно для заполнения
+                        </span>
+                      )}
+                      {!phoneIsValid && (
+                        <span className="ui-input__error">
+                          Введите корректный номер телефона
                         </span>
                       )}
                     </div>
