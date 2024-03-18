@@ -121,7 +121,8 @@ export default function How() {
           get_params: getParamsStr,
         };
         setError(false);
-        await fetch("https://rafinad.io/api/v1/create_landing_data/", {
+        // await fetch("https://rafinad.io/api/v1/create_landing_data/", {
+        await fetch("https://dev-h.rafinad.io/api/v1/create_landing_data/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json;charset=utf-8",
