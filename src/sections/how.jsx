@@ -19,12 +19,12 @@ export default function How() {
   useEffect(() => {
     const url = new URL(window.location.href);
     if (url.searchParams.size === 0) {
-      url.searchParams.set("o", "7");
-      url.searchParams.set("a", "3");
-      url.searchParams.set("aff_click_id", "1");
-      url.searchParams.set("sub_id1", "1");
-      url.searchParams.set("sub_id4", "1");
-      url.searchParams.set("sub_id5", "rafinad");
+      url.searchParams.set("aff_id", "67323");
+      url.searchParams.set("offer_id", "5638");
+      url.searchParams.set("p", "1709");
+      url.searchParams.set("erid", "LatgBYGbw");
+      url.searchParams.set("aff_sub", "1");
+      url.searchParams.set("aff_sub2", "1");
       window.history.pushState({ path: url.href }, "", url.href);
     }
   }, []);
@@ -90,7 +90,6 @@ export default function How() {
         params[key] = sanitizeValue(val);
       }
     });
-    console.log(params, "params");
     return params;
   }
 
@@ -124,7 +123,7 @@ export default function How() {
       try {
         setIsSubmitting(true);
         let getParamsStr = window.location.search;
-        const { aff_click_id: click_id, sub_id4: wm_id } = getGetParams();
+        const { aff_sub: click_id, aff_sub2: wm_id } = getGetParams();
         const data = {
           landing: "2",
           email: emailValue,
@@ -148,7 +147,7 @@ export default function How() {
         if (!response.ok) {
           setError(true);
         } else {
-          window.location = `https://go.leadgid.ru/${getParamsStr}`;
+          window.location = `https://go.leadgid.ru/aff_c${getParamsStr}`;
         }
       } catch (error) {
         console.log(error);
