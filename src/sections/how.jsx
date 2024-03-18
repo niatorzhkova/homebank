@@ -95,7 +95,7 @@ export default function How() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    // const token = await recaptchaRef.current.executeAsync();
+    const token = await recaptchaRef.current.executeAsync();
     const email = emailValue;
 
     if (phoneValue === "" || phoneValue === undefined) {
@@ -118,7 +118,8 @@ export default function How() {
       !emailIsEmpty &&
       checked &&
       isValidEmail(email) &&
-      phoneIsValid
+      phoneIsValid &&
+      token
     ) {
       try {
         setIsSubmitting(true);
@@ -133,9 +134,8 @@ export default function How() {
           get_params: getParamsStr,
         };
         setError(false);
-        // await fetch("https://rafinad.io/api/v1/create_landing_data/", {
         const response = await fetch(
-          "https://dev-h.rafinad.io/api/v1/create_landing_data/",
+          "https://rafinad.io/api/v1/create_landing_data/",
           {
             method: "POST",
             headers: {
