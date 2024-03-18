@@ -130,8 +130,9 @@ export default function How() {
           body: JSON.stringify(data),
         });
 
-        window.location = `https://go.leadgid.ru/${getParamsStr}`;
+        // window.location = `https://go.leadgid.ru/${getParamsStr}`;
       } catch (error) {
+        console.log(error);
         setError(true);
       } finally {
         setIsSubmitting(false);
