@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { AES, enc } from "crypto-js";
-import ReCAPTCHA from "react-google-recaptcha";
 import { IMaskInput } from "react-imask";
 
 export default function How() {
@@ -12,7 +11,6 @@ export default function How() {
   const [checked, setChecked] = useState(null);
   const [error, setError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const recaptchaRef = React.createRef();
   const ref = useRef(null);
   const inputRef = useRef(null);
 
@@ -22,7 +20,7 @@ export default function How() {
       url.searchParams.set("aff_id", "67323");
       url.searchParams.set("offer_id", "5638");
       url.searchParams.set("p", "1709");
-      url.searchParams.set("erid", "LatgBYGbw");
+      url.searchParams.set("erid", "LjN8KWKhz");
       url.searchParams.set("aff_sub", "1");
       url.searchParams.set("aff_sub2", "1");
       window.history.pushState({ path: url.href }, "", url.href);
@@ -95,7 +93,7 @@ export default function How() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const token = await recaptchaRef.current.executeAsync();
+
     const email = emailValue;
 
     if (phoneValue === "" || phoneValue === undefined) {
@@ -118,42 +116,51 @@ export default function How() {
       !emailIsEmpty &&
       checked &&
       isValidEmail(email) &&
-      phoneIsValid &&
-      token
+      phoneIsValid
     ) {
       try {
         setIsSubmitting(true);
-        let getParamsStr = window.location.search;
-        const { aff_sub: click_id, aff_sub2: wm_id } = getGetParams();
-        const data = {
-          landing: "2",
-          email: emailValue,
-          phone_number: phoneValue,
-          wm_id: wm_id,
-          click_id: click_id,
-          get_params: getParamsStr,
-        };
-        setError(false);
-        const response = await fetch(
-          "https://rafinad.io/api/v1/create_landing_data/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }
-        );
-        if (!response.ok) {
-          setError(true);
-        } else {
-          window.location = `https://go.leadgid.ru/aff_c${getParamsStr}`;
-        }
+
+        window.grecaptcha.ready(function () {
+          window.grecaptcha
+            .execute("6LfA288nAAAAAKt8TcmpQGAdfCnCAj3C1y5_6GLg", {
+              action: "regFormCaptcha",
+            })
+            .then(function (token) {
+              let getParamsStr = window.location.search;
+              const { aff_sub: click_id, aff_sub2: wm_id } = getGetParams();
+              const data = {
+                landing: "2",
+                email: emailValue,
+                phone_number: phoneValue,
+                wm_id: wm_id,
+                click_id: click_id,
+                get_params: getParamsStr,
+              };
+              setError(false);
+              const response = fetch(
+                "https://rafinad.io/api/v1/create_landing_data/",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(data),
+                }
+              ).then((response) => {
+                if (!response.ok) {
+                  setError(true);
+                  setIsSubmitting(false);
+                } else {
+                  setIsSubmitting(false);
+                  window.location = `https://go.leadgid.ru/aff_c${getParamsStr}`;
+                }
+              });
+            });
+        });
       } catch (error) {
         console.log(error);
         setError(true);
-      } finally {
-        setIsSubmitting(false);
       }
     }
   }
@@ -191,11 +198,6 @@ export default function How() {
           <div className="registration__content">
             <div className="registration__form">
               <form className="reg-form js-reg-form">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  size="invisible"
-                  sitekey="6LfA288nAAAAAKt8TcmpQGAdfCnCAj3C1y5_6GLg"
-                />
                 <div className="reg-form__row">
                   <div className="reg-form__field">
                     <div className="ui-input">

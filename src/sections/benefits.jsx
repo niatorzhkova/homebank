@@ -15,7 +15,7 @@ export default function Benefits({}) {
               />
               <p className="benefit-item__title">1000 баллов Польза</p>
               <p className="u-collapse-all">
-                за покупки от 1000 рублей (1 балл = 1 рубль)
+                за покупки онлайн от 1000 рублей (1 балл = 1 рубль)
               </p>
             </div>
             <div className="benefit-item">

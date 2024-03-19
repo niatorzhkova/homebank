@@ -302,11 +302,16 @@ img {
 }
 .header__logo {
   max-width: 188px;
+  height: 44px;
+  img {
+    height: 100%;
+  }
 }
 
 @media (max-width: 600px) {
   .header__logo {
     max-width: 152px;
+    height: 36px;
   }
 }
 .main-banner {

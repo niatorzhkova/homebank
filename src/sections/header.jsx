@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactComponent as Logo } from "../images/logo.svg";
 
 export default function Header() {
   return (
@@ -9,7 +8,7 @@ export default function Header() {
         <div className="container">
           <div className="header__logo">
             {" "}
-            <Logo />
+            <img src={require("../images/logo.jpg")} />
           </div>
         </div>
       </header>
